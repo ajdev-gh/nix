@@ -17,9 +17,23 @@ vim.lsp.config("lua_ls", {
   },
 })
 
+vim.lsp.config('nixd', {
+  cmd = { 'nixd' },
+  filetypes = { 'nix' },
+  root_markers = { 'flake.nix', 'shell.nix', 'git' },
+  settings = {
+    nixd = {
+      formatting = {
+        command = { "alejandra" },
+      },
+    },
+  },
+})
+
 vim.lsp.enable({
   "lua_ls",
   "basedpyright",
   "jdtls",
-  "rust_analyzer"
+  "rust_analyzer",
+  "nixd",
 })

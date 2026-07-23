@@ -6,10 +6,14 @@
         ripgrep
         fd
         tree-sitter
+        
         jdt-language-server
         lua-language-server
         basedpyright
         rust-analyzer
+        nixd
+
+        alejandra
       ];
       specs.general = with pkgs.vimPlugins; [
         mini-nvim
