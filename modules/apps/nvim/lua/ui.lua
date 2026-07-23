@@ -8,6 +8,8 @@ local MiniExtra = require("mini.extra")
 local WhichKey = require("which-key")
 local RenderMarkdown = require("render-markdown")
 
+vim.cmd.colorscheme("gruvbox")
+
 require("mini.icons").setup()
 require("mini.git").setup()
 require("mini.diff").setup()

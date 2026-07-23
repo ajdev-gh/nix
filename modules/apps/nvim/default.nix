@@ -20,6 +20,7 @@
         alejandra
       ];
       specs.general = with pkgs.vimPlugins; [
+        gruvbox-nvim
         mini-nvim
         which-key-nvim
         render-markdown-nvim
