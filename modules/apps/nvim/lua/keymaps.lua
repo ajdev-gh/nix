@@ -23,6 +23,18 @@ vim.keymap.set("t", "<Esc><Esc><Esc>", "<C-\\><C-n>", { desc = "Escape terminal 
 
 vim.keymap.set("n", "<leader>r", "<cmd>restart<cr>", { desc = "Restart Neovim" })
 
+--- mini surround ---
+require("mini.surround").setup()
+-- Default Keymaps
+-- | `sa` | Add surrounding or Direct with 'saiw' |
+-- | `sd` | Delete surrounding |
+-- | `sr` | Replace surrounding |
+-- | `sf` | Find surrounding (right) |
+-- | `sF` | Find surrounding (left) |
+-- | `sh` | Highlight surrounding |
+-- | `sn` | Update n_lines |
+-- | `l` / `n` | as suffix for prev/next |
+
 -- native undotree
 vim.keymap.set("n", "<leader>u", function()
   vim.cmd.packadd("nvim.undotree")

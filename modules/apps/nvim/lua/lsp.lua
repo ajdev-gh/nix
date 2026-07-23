@@ -37,3 +37,16 @@ vim.lsp.enable({
   "rust_analyzer",
   "nixd",
 })
+
+local MiniSnippets = require("mini.snippets")
+
+--- mini cmdline completion ---
+require("mini.cmdline").setup()
+
+--- mini snippets ---
+MiniSnippets.setup({
+  snippets = {
+    MiniSnippets.gen_loader.from_lang(),     -- loads friendly-snippets
+  },
+})
+MiniSnippets.start_lsp_server({ match = false })

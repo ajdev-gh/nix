@@ -1,14 +1,16 @@
 local MiniSession = require("mini.sessions")
 local MiniFiles = require("mini.files")
 local MiniStarter = require("mini.starter")
+local MiniStatus = require("mini.statusline")
 local MiniPick = require("mini.pick")
 local MiniPickPreview = require("mini-pick-preview")
 local MiniExtra = require("mini.extra")
-local MiniSnippets = require("mini.snippets")
 local WhichKey = require("which-key")
 local RenderMarkdown = require("render-markdown")
 
 require("mini.icons").setup()
+require("mini.git").setup()
+require("mini.diff").setup()
 
 --- Session Manager ---
 MiniSession.setup()
@@ -23,7 +25,10 @@ MiniStarter.setup({
   }
 })
 
--- mini files ----
+--- Status Line ---
+MiniStatus.setup()
+
+--- mini files ----
 MiniFiles.setup({
   windows = {
     preview = true,
@@ -47,21 +52,6 @@ require("mini.notify").setup({
   },
 })
 
---- mini cmdline completion ---
-require("mini.cmdline").setup()
-
---- mini surround ---
-require("mini.surround").setup()
--- Default Keymaps
--- | `sa` | Add surrounding or Direct with 'saiw' |
--- | `sd` | Delete surrounding |
--- | `sr` | Replace surrounding |
--- | `sf` | Find surrounding (right) |
--- | `sF` | Find surrounding (left) |
--- | `sh` | Highlight surrounding |
--- | `sn` | Update n_lines |
--- | `l` / `n` | as suffix for prev/next |
-
 --- mini picker ---
 MiniPick.setup()
 MiniPickPreview.setup()
@@ -82,14 +72,6 @@ require("mini.completion").setup({
     auto_setup = true,
   }
 })
-
---- mini snippets ---
-MiniSnippets.setup({
-  snippets = {
-    MiniSnippets.gen_loader.from_lang(),     -- loads friendly-snippets
-  },
-})
-MiniSnippets.start_lsp_server({ match = false })
 
 --- which-key ---
 WhichKey.setup({
