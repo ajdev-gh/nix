@@ -1,7 +1,7 @@
 local treesitter = require("nvim-treesitter")
 
 local ensure_installed = {
-  "rust", "python", "java",
+  "rust", "python", "java", "nix",
 }
 
 treesitter.install(ensure_installed)
