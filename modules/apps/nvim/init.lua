@@ -1,0 +1,5 @@
+require("options")
+require("keymaps")
+require("ui")
+require("lsp")
+require("treesitter")
