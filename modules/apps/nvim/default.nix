@@ -27,6 +27,8 @@
         nvim-treesitter
         friendly-snippets
         nvim-lspconfig
+        gitsigns-nvim
+        vim-fugitive
       ];
       specs.mini-pick-preview =
         config.nvim-lib.mkPlugin "mini-pick-preview"

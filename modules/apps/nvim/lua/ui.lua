@@ -11,8 +11,6 @@ local RenderMarkdown = require("render-markdown")
 vim.cmd.colorscheme("gruvbox")
 
 require("mini.icons").setup()
-require("mini.git").setup()
-require("mini.diff").setup()
 
 --- Session Manager ---
 MiniSession.setup()
