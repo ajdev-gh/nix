@@ -18,7 +18,7 @@ MiniSession.setup()
 --- Starter Window ---
 MiniStarter.setup({
   items = {
-    {action = "MiniFiles.open()", name = "Open file tree", section = "Navigation"},
+    {action = "lua MiniFiles.open()", name = "Open file tree", section = "Navigation"},
     {action = "lua vim.cmd('qa')", name = "Quit Neovim", section = "Navigation"},
     {section = MiniStarter.sections.recent_files(5,true)},
     {section = MiniStarter.sections.pick()},
