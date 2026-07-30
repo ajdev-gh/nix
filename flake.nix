@@ -6,6 +6,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:denful/import-tree";
     wrappers.url = "github:BirdeeHub/nix-wrapper-modules";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Neovim Plugins
     mini-pick-preview = {
@@ -22,6 +26,7 @@
         "aarch64-darwin"
       ];
       imports = [
+        inputs.disko.flakeModules.default
         (inputs.import-tree ./modules)
       ];
     };
