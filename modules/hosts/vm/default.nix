@@ -6,6 +6,7 @@
     modules = [
       inputs.disko.nixosModules.disko
       self.diskoConfigurations.qemu-vm
+      self.nixosModules.base
       self.nixosModules.qemuGuest
       self.nixosModules.nixos-vm-config
     ];
