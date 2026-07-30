@@ -4,6 +4,17 @@ vim.keymap.set("n", "df", vim.diagnostic.open_float, { desc = "Show line diagnos
 
 vim.diagnostic.config({ virtual_text = true })
 
+local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = format_group,
+  callback = function()
+    vim.lsp.buf.format({
+      async = false,
+    })
+  end,
+})
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
 
