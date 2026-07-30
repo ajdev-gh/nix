@@ -9,6 +9,7 @@
       self.nixosModules.base
       self.nixosModules.qemuGuest
       self.nixosModules.nixos-vm-config
+      self.nixosModules.custom-nvim
     ];
   };
 }

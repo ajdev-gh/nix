@@ -3,10 +3,17 @@
   inputs,
   ...
 }: {
+  flake.nixosModules.custom-nvim = { pkgs, lib, ... }: {
+    programs.neovim = {
+      enable = true;
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.nvim;
+    };
+  };
   perSystem = {pkgs, ...}: {
     packages.nvim = inputs.wrappers.wrappers.neovim.wrap ({config, ...}: {
       inherit pkgs;
       runtimePkgs = with pkgs; [
+        git
         ripgrep
         fd
         tree-sitter
@@ -20,6 +27,7 @@
         alejandra
       ];
       specs.general = with pkgs.vimPlugins; [
+        nvim-treesitter.withAllGrammars
         gruvbox-nvim
         mini-nvim
         which-key-nvim
