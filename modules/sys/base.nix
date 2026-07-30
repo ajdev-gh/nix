@@ -1,9 +1,13 @@
-{ self, inputs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.nixosModules.base = {
     nix = {
       settings = {
-        experimental-features = [ "nix-command" "flakes" ];
-        trusted-users = [ "root" "@wheel" ];
+        experimental-features = ["nix-command" "flakes"];
+        trusted-users = ["root" "@wheel"];
       };
       gc = {
         automatic = true;

@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.custom-nvim = { pkgs, lib, ... }: {
+  flake.nixosModules.custom-nvim = {
+    pkgs,
+    lib,
+    ...
+  }: {
     programs.neovim = {
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.nvim;

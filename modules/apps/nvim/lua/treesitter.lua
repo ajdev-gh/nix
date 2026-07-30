@@ -1,11 +1,3 @@
-local treesitter = require("nvim-treesitter")
-
-local ensure_installed = {
-  "rust", "python", "java", "nix",
-}
-
-treesitter.install(ensure_installed)
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function(args)

@@ -1,8 +1,11 @@
-{ ... }:
-
-{
+{...}: {
   # Expose the NixOS module cleanly via flake.nixosModules
-  flake.nixosModules.qemuGuest = { config, lib, pkgs, ... }: {
+  flake.nixosModules.qemuGuest = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }: {
     options.profiles.qemuGuest = {
       enable = lib.mkEnableOption "common QEMU VM guest configurations";
     };
@@ -31,7 +34,7 @@
       services.qemuGuest.enable = true;
 
       # Serial console output (ttyS0) for terminal access
-      boot.kernelParams = [ "console=ttyS0,115200n8" ];
+      boot.kernelParams = ["console=ttyS0,115200n8"];
     };
   };
 }

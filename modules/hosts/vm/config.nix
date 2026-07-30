@@ -1,5 +1,9 @@
-{self, inputs, ... }: {
-  flake.nixosModules.nixos-vm-config = { pkgs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.nixos-vm-config = {pkgs, ...}: {
     # Enable the profile
     profiles.qemuGuest.enable = true;
 
@@ -30,7 +34,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILXcI7ftmBn6N33Au3JMYJQOC8NJGfvRKP69Nk+vwTk8 ajirequi@metis"
       ];
-      packages = with pkgs;[
+      packages = with pkgs; [
         tree
       ];
     };

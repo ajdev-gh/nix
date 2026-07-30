@@ -1,4 +1,8 @@
-{ self, inputs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}: {
   flake.deploy.nodes.nixos-vm = {
     hostname = "nixos-vm";
     sshUser = "ajirequi";
